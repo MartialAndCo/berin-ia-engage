@@ -40,20 +40,25 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 sm:py-32 bg-gradient-to-br from-primary/5 to-accent/5">
-      <div className="container mx-auto px-4 sm:px-6">
-        <div className="text-center mb-12 animate-fade-in">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            Prêt à transformer <span className="text-primary">vos appels</span> ?
+    <section id="contact" className="py-20 sm:py-32 relative overflow-hidden">
+      {/* Background effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/5 to-background" />
+      <div className="absolute top-1/4 left-1/4 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[150px]" />
+      <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[150px]" />
+      
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="text-center mb-16 animate-fade-in">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
+            Prêt à transformer <span className="bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent neon-text">vos appels</span> ?
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Demandez une démo personnalisée et découvrez comment BerinIA peut booster votre activité
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Form */}
-          <div className="animate-fade-in-up">
+          <div className="animate-fade-in-up glass-card-strong p-8 rounded-3xl border-2 border-primary/20">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
@@ -64,7 +69,7 @@ const ContactSection = () => {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Jean Dupont"
-                    className="bg-card/50 backdrop-blur-sm"
+                    className="bg-card/50 backdrop-blur-sm border-2 border-primary/20 focus:border-accent transition-all"
                   />
                 </div>
                 <div className="space-y-2">
@@ -75,7 +80,7 @@ const ContactSection = () => {
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                     placeholder="Votre entreprise"
-                    className="bg-card/50 backdrop-blur-sm"
+                    className="bg-card/50 backdrop-blur-sm border-2 border-primary/20 focus:border-accent transition-all"
                   />
                 </div>
               </div>
@@ -90,7 +95,7 @@ const ContactSection = () => {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="contact@entreprise.com"
-                    className="bg-card/50 backdrop-blur-sm"
+                    className="bg-card/50 backdrop-blur-sm border-2 border-primary/20 focus:border-accent transition-all"
                   />
                 </div>
                 <div className="space-y-2">
@@ -102,7 +107,7 @@ const ContactSection = () => {
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     placeholder="+33 6 12 34 56 78"
-                    className="bg-card/50 backdrop-blur-sm"
+                    className="bg-card/50 backdrop-blur-sm border-2 border-primary/20 focus:border-accent transition-all"
                   />
                 </div>
               </div>
@@ -115,7 +120,7 @@ const ContactSection = () => {
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Décrivez brièvement votre projet et vos attentes..."
                   rows={5}
-                  className="bg-card/50 backdrop-blur-sm resize-none"
+                  className="bg-card/50 backdrop-blur-sm resize-none border-2 border-primary/20 focus:border-accent transition-all"
                 />
               </div>
 
@@ -148,40 +153,40 @@ const ContactSection = () => {
 
           {/* Contact info */}
           <div className="space-y-8 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-            <div className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-8 space-y-6">
-              <h3 className="text-2xl font-bold mb-6">Nos coordonnées</h3>
+            <div className="glass-card-strong p-10 rounded-3xl border-2 border-primary/20 space-y-8">
+              <h3 className="text-3xl font-extrabold mb-8">Nos coordonnées</h3>
 
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-6 h-6 text-primary" />
+              <div className="flex items-start gap-5">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0 shadow-glow-primary">
+                  <Mail className="w-7 h-7 text-background" />
                 </div>
                 <div>
-                  <div className="font-semibold mb-1">Email</div>
-                  <a href="mailto:contact@berinia.fr" className="text-muted-foreground hover:text-primary transition-colors">
+                  <div className="font-bold mb-1 text-lg">Email</div>
+                  <a href="mailto:contact@berinia.fr" className="text-muted-foreground hover:text-accent transition-colors font-semibold">
                     contact@berinia.fr
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-6 h-6 text-accent" />
+              <div className="flex items-start gap-5">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent to-primary-glow flex items-center justify-center flex-shrink-0 shadow-glow-accent">
+                  <Phone className="w-7 h-7 text-background" />
                 </div>
                 <div>
-                  <div className="font-semibold mb-1">Téléphone</div>
-                  <a href="tel:+33123456789" className="text-muted-foreground hover:text-accent transition-colors">
+                  <div className="font-bold mb-1 text-lg">Téléphone</div>
+                  <a href="tel:+33123456789" className="text-muted-foreground hover:text-primary transition-colors font-semibold">
                     +33 1 23 45 67 89
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center flex-shrink-0">
-                  <Clock className="w-6 h-6 text-foreground" />
+              <div className="flex items-start gap-5">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-glow to-primary flex items-center justify-center flex-shrink-0">
+                  <Clock className="w-7 h-7 text-background" />
                 </div>
                 <div>
-                  <div className="font-semibold mb-1">Horaires</div>
-                  <p className="text-muted-foreground">
+                  <div className="font-bold mb-1 text-lg">Horaires</div>
+                  <p className="text-muted-foreground font-semibold">
                     Lun - Ven : 9h - 18h<br />
                     Sam : 9h - 12h
                   </p>
@@ -189,14 +194,14 @@ const ContactSection = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20 rounded-2xl p-6">
-              <div className="flex items-start gap-3">
-                <div className="text-2xl">🔒</div>
+            <div className="glass-card-strong p-8 rounded-3xl border-2 border-accent/30">
+              <div className="flex items-start gap-4">
+                <div className="text-4xl">🔒</div>
                 <div>
-                  <h4 className="font-semibold mb-2">Vos données en sécurité</h4>
+                  <h4 className="font-bold text-xl mb-3 text-accent">Vos données en sécurité</h4>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     Nous respectons votre vie privée. Aucune donnée n'est vendue à des tiers. 
-                    Conformité RGPD garantie.
+                    Conformité RGPD garantie, hébergement Europe, chiffrement de bout en bout.
                   </p>
                 </div>
               </div>

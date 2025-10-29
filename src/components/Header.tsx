@@ -14,14 +14,14 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 glass-card-strong border-b border-primary/20">
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center">
             <button 
               onClick={() => scrollToSection("hero")}
-              className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent hover:opacity-80 transition-opacity"
+              className="text-2xl font-bold bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent hover:scale-105 transition-all duration-300 neon-text"
             >
               BerinIA
             </button>
@@ -29,16 +29,16 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            <button onClick={() => scrollToSection("product")} className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+            <button onClick={() => scrollToSection("product")} className="text-sm font-semibold text-muted-foreground hover:text-accent transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-primary after:to-accent hover:after:w-full after:transition-all after:duration-300">
               Produit
             </button>
-            <button onClick={() => scrollToSection("features")} className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+            <button onClick={() => scrollToSection("features")} className="text-sm font-semibold text-muted-foreground hover:text-accent transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-primary after:to-accent hover:after:w-full after:transition-all after:duration-300">
               Fonctionnalités
             </button>
-            <button onClick={() => scrollToSection("social-proof")} className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+            <button onClick={() => scrollToSection("social-proof")} className="text-sm font-semibold text-muted-foreground hover:text-accent transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-primary after:to-accent hover:after:w-full after:transition-all after:duration-300">
               Cas clients
             </button>
-            <button onClick={() => scrollToSection("contact")} className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+            <button onClick={() => scrollToSection("contact")} className="text-sm font-semibold text-muted-foreground hover:text-accent transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-primary after:to-accent hover:after:w-full after:transition-all after:duration-300">
               Contact
             </button>
           </nav>
@@ -66,18 +66,18 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-lg">
+        <div className="md:hidden border-t border-primary/20 glass-card-strong">
           <div className="container mx-auto px-4 py-4 space-y-4">
-            <button onClick={() => scrollToSection("product")} className="block w-full text-left py-2 text-foreground/80 hover:text-foreground">
+            <button onClick={() => scrollToSection("product")} className="block w-full text-left py-3 text-muted-foreground hover:text-accent font-semibold transition-colors">
               Produit
             </button>
-            <button onClick={() => scrollToSection("features")} className="block w-full text-left py-2 text-foreground/80 hover:text-foreground">
+            <button onClick={() => scrollToSection("features")} className="block w-full text-left py-3 text-muted-foreground hover:text-accent font-semibold transition-colors">
               Fonctionnalités
             </button>
-            <button onClick={() => scrollToSection("social-proof")} className="block w-full text-left py-2 text-foreground/80 hover:text-foreground">
+            <button onClick={() => scrollToSection("social-proof")} className="block w-full text-left py-3 text-muted-foreground hover:text-accent font-semibold transition-colors">
               Cas clients
             </button>
-            <button onClick={() => scrollToSection("contact")} className="block w-full text-left py-2 text-foreground/80 hover:text-foreground">
+            <button onClick={() => scrollToSection("contact")} className="block w-full text-left py-3 text-muted-foreground hover:text-accent font-semibold transition-colors">
               Contact
             </button>
             <Button 

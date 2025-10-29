@@ -5,18 +5,18 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-semibold ring-offset-background transition-all duration-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-md hover:shadow-lg hover:scale-105",
-        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-accent text-accent-foreground hover:bg-accent/90 shadow-[0_0_30px_hsl(var(--accent)/0.5)] hover:shadow-[0_0_40px_hsl(var(--accent)/0.7)] hover:scale-105 font-semibold",
-        glass: "bg-white/10 backdrop-blur-md border border-white/20 text-foreground hover:bg-white/20 shadow-lg",
+        default: "bg-primary text-primary-foreground hover:bg-primary-dark shadow-glow-primary hover:shadow-neon hover:scale-[1.02] active:scale-[0.98]",
+        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-md",
+        outline: "border-2 border-primary/30 bg-transparent text-foreground hover:border-primary hover:bg-primary/10 hover:shadow-glow-primary",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-border",
+        ghost: "hover:bg-accent/10 hover:text-accent",
+        link: "text-primary underline-offset-4 hover:underline hover:text-accent",
+        hero: "relative bg-gradient-to-r from-primary via-accent to-primary-glow text-foreground shadow-glow-accent hover:shadow-neon hover:scale-[1.05] active:scale-[0.98] font-bold tracking-wide uppercase text-sm",
+        glass: "glass-card-strong text-foreground hover:bg-primary/10 hover:border-primary/50 shadow-lg hover:shadow-glow-primary backdrop-blur-xl",
       },
       size: {
         default: "h-10 px-4 py-2",

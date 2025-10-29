@@ -4,85 +4,106 @@ const features = [
   {
     icon: Mic,
     title: "Reconnaissance vocale avancée (ASR)",
-    description: "Transcription en temps réel avec précision métier",
-    stat: "-30% temps d'attente",
+    description: "Transcription en temps réel avec précision métier et compréhension contextuelle avancée",
+    stat: "-30%",
+    label: "temps d'attente",
   },
   {
     icon: MessageSquare,
     title: "Synthèse vocale naturelle (TTS)",
-    description: "Voix personnalisables, ton adapté à votre marque",
-    stat: "+45% satisfaction client",
+    description: "Voix personnalisables ultra-réalistes, ton adapté à votre marque et secteur",
+    stat: "+45%",
+    label: "satisfaction client",
   },
   {
     icon: Network,
     title: "Routage intelligent d'appels",
-    description: "Transfert automatique vers le bon service ou agent",
-    stat: "95% résolution au 1er appel",
+    description: "Transfert automatique vers le bon service ou agent avec contexte préservé",
+    stat: "95%",
+    label: "résolution au 1er appel",
   },
   {
     icon: BarChart3,
-    title: "Analytics et insights",
-    description: "Tableaux de bord détaillés, tendances et prédictions",
-    stat: "+60% performance commerciale",
+    title: "Analytics et insights IA",
+    description: "Tableaux de bord en temps réel, tendances prédictives et recommandations",
+    stat: "+60%",
+    label: "performance commerciale",
   },
   {
     icon: Settings,
-    title: "Scripts dynamiques personnalisables",
-    description: "Adaptez les dialogues selon vos scénarios métier",
-    stat: "Déployé en 48h",
+    title: "Scripts dynamiques intelligents",
+    description: "Adaptez les dialogues en temps réel selon le contexte et comportement client",
+    stat: "48h",
+    label: "déployé",
   },
 ];
 
 const FeaturesSection = () => {
   return (
-    <section id="features" className="py-20 sm:py-32 bg-muted/30">
-      <div className="container mx-auto px-4 sm:px-6">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            Fonctionnalités <span className="text-primary">principales</span>
+    <section id="features" className="py-20 sm:py-32 relative overflow-hidden">
+      {/* Complex background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-accent/5 to-background" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
+      
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="text-center mb-20 animate-fade-in">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
+            Fonctionnalités <span className="bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent neon-text">nouvelle génération</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Des technologies de pointe pour transformer chaque appel en opportunité
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Technologies d'IA conversationnelle qui transforment chaque interaction en opportunité
           </p>
         </div>
 
-        <div className="space-y-16">
+        <div className="space-y-24">
           {features.map((feature, index) => (
             <div 
               key={index}
-              className={`grid md:grid-cols-2 gap-8 items-center animate-fade-in-up ${
+              className={`grid md:grid-cols-2 gap-12 items-center animate-fade-in-up ${
                 index % 2 === 1 ? "md:flex-row-reverse" : ""
               }`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Visual side */}
-              <div className={`${index % 2 === 1 ? "md:order-2" : ""}`}>
-                <div className="relative group">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300" />
-                  <div className="relative bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-8 hover:bg-card/80 transition-all duration-300">
-                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <feature.icon className="w-8 h-8 text-white" />
+              <div className={`${index % 2 === 1 ? "md:order-2" : ""} group`}>
+                <div className="relative">
+                  {/* Glow effect */}
+                  <div className="absolute -inset-6 bg-gradient-to-br from-primary/30 via-accent/20 to-primary-glow/30 rounded-3xl blur-3xl group-hover:blur-[100px] transition-all duration-500 opacity-40 group-hover:opacity-70" />
+                  
+                  <div className="relative glass-card-strong rounded-3xl p-10 border-2 border-primary/20 group-hover:border-accent/50 transition-all duration-500 hover:scale-[1.02]">
+                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary via-accent to-primary-glow flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-glow-primary">
+                      <feature.icon className="w-10 h-10 text-background" />
                     </div>
-                    <div className="text-4xl font-bold text-primary mb-2">{feature.stat}</div>
-                    <div className="text-sm text-muted-foreground">Amélioration mesurée</div>
+                    
+                    <div className="space-y-3">
+                      <div className="text-5xl font-black bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+                        {feature.stat}
+                      </div>
+                      <div className="text-base text-muted-foreground font-semibold uppercase tracking-wider">
+                        {feature.label}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* Content side */}
-              <div className={`${index % 2 === 1 ? "md:order-1" : ""}`}>
-                <h3 className="text-2xl sm:text-3xl font-bold mb-4">{feature.title}</h3>
-                <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+              <div className={`${index % 2 === 1 ? "md:order-1" : ""} space-y-6`}>
+                <h3 className="text-3xl sm:text-4xl font-extrabold leading-tight">
+                  {feature.title}
+                </h3>
+                <p className="text-lg text-muted-foreground leading-relaxed">
                   {feature.description}
                 </p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">
+                <div className="flex flex-wrap gap-3">
+                  <span className="glass-card px-4 py-2 text-sm font-bold text-primary border border-primary/30 rounded-xl">
                     Temps réel
                   </span>
-                  <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm font-medium">
+                  <span className="glass-card px-4 py-2 text-sm font-bold text-accent border border-accent/30 rounded-xl">
                     Personnalisable
                   </span>
-                  <span className="px-3 py-1 bg-muted text-muted-foreground rounded-full text-sm font-medium">
+                  <span className="glass-card px-4 py-2 text-sm font-bold text-primary-glow border border-primary/30 rounded-xl">
                     Scalable
                   </span>
                 </div>

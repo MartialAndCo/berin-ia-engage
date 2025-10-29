@@ -22,6 +22,8 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          dark: "hsl(var(--primary-dark))",
+          glow: "hsl(var(--primary-glow))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -38,6 +40,7 @@ export default {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
+          glow: "hsl(var(--accent-glow))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -114,6 +117,12 @@ export default {
       },
       backgroundSize: {
         "300%": "300%",
+      },
+      boxShadow: {
+        'neon': 'var(--shadow-neon)',
+        'glow-primary': 'var(--shadow-glow-primary)',
+        'glow-accent': 'var(--shadow-glow-accent)',
+        'elegant': 'var(--shadow-xl)',
       },
     },
   },
