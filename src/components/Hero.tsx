@@ -108,7 +108,7 @@ const Hero = () => {
             </div>
             
             {/* Enhanced floating card */}
-            <div className="absolute -bottom-8 -left-8 glass-card-strong border-2 border-accent/30 rounded-2xl p-5 shadow-glow-accent animate-float neon-border">
+            <div className="absolute -bottom-8 -left-8 z-20 glass-card-strong border-2 border-accent/30 rounded-2xl p-5 shadow-glow-accent animate-float neon-border">
               <div className="flex items-center gap-4">
                 <div className="relative w-14 h-14 rounded-full bg-gradient-to-br from-accent/30 to-primary/30 flex items-center justify-center">
                   <div className="absolute inset-0 bg-accent/20 rounded-full animate-ping" />
