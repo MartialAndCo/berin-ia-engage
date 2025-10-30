@@ -32,7 +32,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist  # ✅ dossier de build pour Vite
+          path: public   # 🔹 on utilise public au lieu de dist
           
   deploy:
     needs: build
