@@ -11,12 +11,57 @@ const TestGratuit = () => {
   const [consent, setConsent] = useState(false);
   const [rgpd, setRgpd] = useState(false);
   const [cgu, setCgu] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // TODO: Remplacez cette URL par votre véritable webhook
+  const WEBHOOK_URL = "https://your-webhook-url.com/trigger-demo-call";
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
     if (!consent || !rgpd || !cgu) {
-      e.preventDefault();
       toast.error("Veuillez accepter toutes les conditions pour continuer");
       return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const formData = new FormData(e.currentTarget);
+      const data = {
+        phone: formData.get('phone'),
+        sector: formData.get('sector'),
+        company: formData.get('company'),
+        email: formData.get('email'),
+        timestamp: new Date().toISOString(),
+        type: 'demo-call-request'
+      };
+
+      console.log('Envoi des données au webhook:', data);
+
+      const response = await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        toast.success("Appel de démonstration lancé ! Vous serez contacté dans quelques instants.");
+        // Reset form
+        e.currentTarget.reset();
+        setConsent(false);
+        setRgpd(false);
+        setCgu(false);
+      } else {
+        throw new Error('Erreur lors de l\'envoi');
+      }
+    } catch (error) {
+      console.error('Erreur webhook:', error);
+      toast.error("Erreur lors du lancement de l'appel. Veuillez réessayer.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -56,14 +101,9 @@ const TestGratuit = () => {
           {/* Form */}
           <div className="glass-card-strong p-8 sm:p-10 rounded-3xl border-2 border-primary/20 animate-fade-in-up">
             <form 
-              action="https://formspree.io/f/manldygq" 
-              method="POST"
               onSubmit={handleSubmit}
               className="space-y-6"
             >
-              {/* Hidden field to identify form type */}
-              <input type="hidden" name="_subject" value="Nouvelle demande d'essai gratuit BerinIA" />
-              <input type="hidden" name="type" value="essai-gratuit" />
 
               {/* Phone number */}
               <div className="space-y-2">
@@ -184,12 +224,13 @@ const TestGratuit = () => {
                 variant="hero" 
                 size="lg" 
                 className="w-full text-base h-14"
+                disabled={isSubmitting}
               >
-                Envoyer ma demande d'essai gratuit
+                {isSubmitting ? "Lancement de l'appel..." : "Lancer l'appel de démonstration"}
               </Button>
 
               <p className="text-sm text-center text-muted-foreground">
-                Réponse garantie sous <span className="font-semibold text-primary">24 heures</span>
+                Vous recevrez un appel <span className="font-semibold text-primary">dans quelques instants</span>
               </p>
             </form>
           </div>
