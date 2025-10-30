@@ -1,4 +1,5 @@
 import { Linkedin, Twitter, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const scrollToSection = (id: string) => {
@@ -41,7 +42,7 @@ const Footer = () => {
                 <Twitter className="w-5 h-5 text-accent group-hover:scale-110 transition-transform" />
               </a>
               <a 
-                href="mailto:contact@berinia.fr"
+                href="mailto:contact@berinia.com"
                 className="w-12 h-12 rounded-xl glass-card-strong border border-primary/30 flex items-center justify-center hover:border-accent hover:shadow-glow-accent transition-all duration-300 group"
               >
                 <Mail className="w-5 h-5 text-foreground group-hover:scale-110 transition-transform" />
@@ -105,27 +106,27 @@ const Footer = () => {
 
           {/* Legal */}
           <div>
-            <h4 className="font-semibold mb-4">Légal</h4>
-            <ul className="space-y-2 text-sm">
+            <h4 className="font-bold text-lg mb-6 text-foreground">Légal</h4>
+            <ul className="space-y-3 text-sm">
               <li>
-                <button className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link to="/legal-notice" className="text-muted-foreground hover:text-accent transition-colors font-semibold">
                   Mentions légales
-                </button>
+                </Link>
               </li>
               <li>
-                <button className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link to="/privacy-policy" className="text-muted-foreground hover:text-accent transition-colors font-semibold">
                   Politique de confidentialité
-                </button>
+                </Link>
               </li>
               <li>
-                <button className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link to="/terms-of-service" className="text-muted-foreground hover:text-accent transition-colors font-semibold">
                   CGU
-                </button>
+                </Link>
               </li>
               <li>
-                <button className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link to="/cookie-policy" className="text-muted-foreground hover:text-accent transition-colors font-semibold">
                   Cookies
-                </button>
+                </Link>
               </li>
             </ul>
           </div>
