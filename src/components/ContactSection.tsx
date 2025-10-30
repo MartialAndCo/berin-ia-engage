@@ -8,35 +8,14 @@ import { Mail, Phone, Clock } from "lucide-react";
 import { toast } from "sonner";
 
 const ContactSection = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    phone: "",
-    message: "",
-    consent: false,
-  });
+  const [consent, setConsent] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!formData.consent) {
+    if (!consent) {
+      e.preventDefault();
       toast.error("Veuillez accepter la politique de confidentialité");
       return;
     }
-
-    // Simulate form submission
-    toast.success("Demande envoyée ! Nous vous recontactons sous 48h.");
-    
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      company: "",
-      phone: "",
-      message: "",
-      consent: false,
-    });
   };
 
   return (
@@ -59,15 +38,19 @@ const ContactSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Form */}
           <div className="animate-fade-in-up glass-card-strong p-8 rounded-3xl border-2 border-primary/20">
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form 
+              action="https://formspree.io/f/manldygq" 
+              method="POST"
+              onSubmit={handleSubmit} 
+              className="space-y-6"
+            >
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="name">Nom complet *</Label>
                   <Input
                     id="name"
+                    name="name"
                     required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Jean Dupont"
                     className="bg-card/50 backdrop-blur-sm border-2 border-primary/20 focus:border-accent transition-all"
                   />
@@ -76,9 +59,8 @@ const ContactSection = () => {
                   <Label htmlFor="company">Société *</Label>
                   <Input
                     id="company"
+                    name="company"
                     required
-                    value={formData.company}
-                    onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                     placeholder="Votre entreprise"
                     className="bg-card/50 backdrop-blur-sm border-2 border-primary/20 focus:border-accent transition-all"
                   />
@@ -90,10 +72,9 @@ const ContactSection = () => {
                   <Label htmlFor="email">Email professionnel *</Label>
                   <Input
                     id="email"
+                    name="email"
                     type="email"
                     required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="contact@entreprise.com"
                     className="bg-card/50 backdrop-blur-sm border-2 border-primary/20 focus:border-accent transition-all"
                   />
@@ -102,10 +83,9 @@ const ContactSection = () => {
                   <Label htmlFor="phone">Téléphone *</Label>
                   <Input
                     id="phone"
+                    name="phone"
                     type="tel"
                     required
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     placeholder="+33 6 12 34 56 78"
                     className="bg-card/50 backdrop-blur-sm border-2 border-primary/20 focus:border-accent transition-all"
                   />
@@ -116,8 +96,7 @@ const ContactSection = () => {
                 <Label htmlFor="message">Parlez-nous de votre besoin</Label>
                 <Textarea
                   id="message"
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  name="message"
                   placeholder="Décrivez brièvement votre projet et vos attentes..."
                   rows={5}
                   className="bg-card/50 backdrop-blur-sm resize-none border-2 border-primary/20 focus:border-accent transition-all"
@@ -127,10 +106,8 @@ const ContactSection = () => {
               <div className="flex items-start gap-3">
                 <Checkbox
                   id="consent"
-                  checked={formData.consent}
-                  onCheckedChange={(checked) => 
-                    setFormData({ ...formData, consent: checked as boolean })
-                  }
+                  checked={consent}
+                  onCheckedChange={(checked) => setConsent(checked as boolean)}
                 />
                 <Label 
                   htmlFor="consent" 
