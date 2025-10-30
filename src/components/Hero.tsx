@@ -1,9 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Zap, Clock, Sparkles } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import heroImage from "@/assets/hero-phone-ai.jpg";
 
 const Hero = () => {
+  const navigate = useNavigate();
+  
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -83,10 +86,10 @@ const Hero = () => {
               <Button 
                 variant="glass" 
                 size="lg"
-                onClick={() => scrollToSection("demo")}
+                onClick={() => navigate("/essai-gratuit")}
                 className="text-base"
               >
-                Voir la démo interactive
+                Essayer gratuitement
               </Button>
             </div>
           </div>

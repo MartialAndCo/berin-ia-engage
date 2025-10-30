@@ -10,6 +10,7 @@ import LegalNotice from "./pages/LegalNotice";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import CookiePolicy from "./pages/CookiePolicy";
+import TestGratuit from "./pages/TestGratuit";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,7 @@ const App = () => (
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/essai-gratuit" element={<TestGratuit />} />
           <Route path="/legal-notice" element={<LegalNotice />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
