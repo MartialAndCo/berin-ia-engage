@@ -162,8 +162,8 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <div className="font-bold mb-1 text-lg">Email</div>
-                  <a href="mailto:contact@berinia.fr" className="text-muted-foreground hover:text-accent transition-colors font-semibold">
-                    contact@berinia.fr
+                  <a href="mailto:contact@berinia.com" className="text-muted-foreground hover:text-accent transition-colors font-semibold">
+                    contact@berinia.com
                   </a>
                 </div>
               </div>
