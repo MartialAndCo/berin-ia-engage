@@ -1,25 +1,27 @@
 import { Card } from "@/components/ui/card";
 import { MessageSquare, PhoneCall, Blocks } from "lucide-react";
-
-const features = [
-  {
-    icon: MessageSquare,
-    title: "Réponse automatique intelligente",
-    description: "Vos clients obtiennent des réponses instantanées, naturelles et contextualisées à toute heure.",
-  },
-  {
-    icon: PhoneCall,
-    title: "Appels entrants & sortants",
-    description: "Gérez la réception d'appels et lancez des campagnes proactives avec la même intelligence.",
-  },
-  {
-    icon: Blocks,
-    title: "Intégration métier",
-    description: "Connecté à vos outils CRM, agenda et systèmes métier pour une expérience fluide.",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ProductSection = () => {
+  const { t } = useLanguage();
+  
+  const features = [
+    {
+      icon: MessageSquare,
+      title: t("product.feature1.title"),
+      description: t("product.feature1.description"),
+    },
+    {
+      icon: PhoneCall,
+      title: t("product.feature2.title"),
+      description: t("product.feature2.description"),
+    },
+    {
+      icon: Blocks,
+      title: t("product.feature3.title"),
+      description: t("product.feature3.description"),
+    },
+  ];
   return (
     <section id="product" className="py-20 sm:py-32 relative overflow-hidden">
       {/* Background effects */}
@@ -29,10 +31,10 @@ const ProductSection = () => {
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
-            Ce que fait <span className="bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent neon-text">BerinIA</span>
+            {t("product.title")}
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Plateforme d'IA conversationnelle qui transforme votre téléphonie en machine à convertir
+            {t("product.subtitle")}
           </p>
         </div>
 
@@ -55,7 +57,7 @@ const ProductSection = () => {
                 <p className="text-muted-foreground leading-relaxed text-base">{feature.description}</p>
                 
                 <button className="mt-6 text-sm font-bold text-primary hover:text-accent transition-colors inline-flex items-center gap-2 group-hover:gap-3">
-                  Découvrir
+                  {t("product.discover")}
                   <span className="transition-all duration-300">→</span>
                 </button>
               </div>

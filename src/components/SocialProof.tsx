@@ -1,38 +1,40 @@
 import { Star, TrendingUp } from "lucide-react";
 import { useEffect, useState } from "react";
-
-const testimonials = [
-  {
-    name: "Marie Dubois",
-    role: "Directrice Commerciale",
-    company: "Immo+",
-    content: "Depuis BerinIA, nous ne ratons plus aucun appel. +40% de prises de rendez-vous en 3 mois. L'IA comprend parfaitement le contexte immobilier.",
-    rating: 5,
-  },
-  {
-    name: "Thomas Bernard",
-    role: "Gérant",
-    company: "Services Pro",
-    content: "L'IA gère parfaitement les demandes courantes. Mon équipe se concentre sur les dossiers complexes. ROI positif dès le 2e mois.",
-    rating: 5,
-  },
-  {
-    name: "Sophie Martin",
-    role: "Responsable Client",
-    company: "TechServices",
-    content: "Installation rapide, formation claire. Les clients apprécient la réactivité 24/7. Meilleur investissement de l'année.",
-    rating: 5,
-  },
-];
-
-const stats = [
-  { value: 50000, label: "Appels gérés par mois", suffix: "+" },
-  { value: 30, label: "Minutes gagnées par jour", suffix: "" },
-  { value: 45, label: "Taux de conversion", suffix: "%" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const SocialProof = () => {
-  const [counts, setCounts] = useState(stats.map(() => 0));
+  const { t } = useLanguage();
+  const [counts, setCounts] = useState([50000, 30, 45].map(() => 0));
+
+  const testimonials = [
+    {
+      name: t("social.testimonial1.name"),
+      role: t("social.testimonial1.role"),
+      company: t("social.testimonial1.company"),
+      content: t("social.testimonial1.content"),
+      rating: 5,
+    },
+    {
+      name: t("social.testimonial2.name"),
+      role: t("social.testimonial2.role"),
+      company: t("social.testimonial2.company"),
+      content: t("social.testimonial2.content"),
+      rating: 5,
+    },
+    {
+      name: t("social.testimonial3.name"),
+      role: t("social.testimonial3.role"),
+      company: t("social.testimonial3.company"),
+      content: t("social.testimonial3.content"),
+      rating: 5,
+    },
+  ];
+
+  const stats = [
+    { value: 50000, label: t("social.stat1.label"), suffix: "+" },
+    { value: 30, label: t("social.stat2.label"), suffix: "" },
+    { value: 45, label: t("social.stat3.label"), suffix: "%" },
+  ];
 
   useEffect(() => {
     const duration = 2000;
@@ -85,10 +87,10 @@ const SocialProof = () => {
         {/* Testimonials */}
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
-            Ils nous font <span className="bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent neon-text">confiance</span>
+            {t("social.title")}
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Des résultats mesurables dès les premières semaines
+            {t("social.subtitle")}
           </p>
         </div>
 
@@ -127,10 +129,10 @@ const SocialProof = () => {
         {/* Trust indicators */}
         <div className="grid sm:grid-cols-4 gap-6">
           {[
-            { label: "Disponibilité", value: "99.9%", icon: "⚡" },
-            { label: "Conformité RGPD", value: "✓", icon: "🔒" },
-            { label: "Support 24/7", value: "✓", icon: "💬" },
-            { label: "Sécurité ISO", value: "✓", icon: "🛡️" },
+            { label: t("social.trust1.label"), value: t("social.trust1.value"), icon: "⚡" },
+            { label: t("social.trust2.label"), value: "✓", icon: "🔒" },
+            { label: t("social.trust3.label"), value: "✓", icon: "💬" },
+            { label: t("social.trust4.label"), value: "✓", icon: "🛡️" },
           ].map((item, index) => (
             <div 
               key={index}

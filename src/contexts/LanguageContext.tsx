@@ -63,10 +63,6 @@ const translations: Record<Language, Record<string, string>> = {
     "features.badge2": "Customizable",
     "features.badge3": "Scalable",
     
-    // Features
-    "features.title": "Advanced Features",
-    "features.subtitle": "Cutting-edge technology for exceptional customer experience",
-    
     // Social Proof
     "social.title": "They Trust Us",
     "social.subtitle": "Join hundreds of companies that have revolutionized their customer service",

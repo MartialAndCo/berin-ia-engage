@@ -1,44 +1,46 @@
 import { Mic, MessageSquare, Network, BarChart3, Settings } from "lucide-react";
-
-const features = [
-  {
-    icon: Mic,
-    title: "Reconnaissance vocale avancée (ASR)",
-    description: "Transcription en temps réel avec précision métier et compréhension contextuelle avancée",
-    stat: "-30%",
-    label: "temps d'attente",
-  },
-  {
-    icon: MessageSquare,
-    title: "Synthèse vocale naturelle (TTS)",
-    description: "Voix personnalisables ultra-réalistes, ton adapté à votre marque et secteur",
-    stat: "+45%",
-    label: "satisfaction client",
-  },
-  {
-    icon: Network,
-    title: "Routage intelligent d'appels",
-    description: "Transfert automatique vers le bon service ou agent avec contexte préservé",
-    stat: "95%",
-    label: "résolution au 1er appel",
-  },
-  {
-    icon: BarChart3,
-    title: "Analytics et insights IA",
-    description: "Tableaux de bord en temps réel, tendances prédictives et recommandations",
-    stat: "+60%",
-    label: "performance commerciale",
-  },
-  {
-    icon: Settings,
-    title: "Scripts dynamiques intelligents",
-    description: "Adaptez les dialogues en temps réel selon le contexte et comportement client",
-    stat: "48h",
-    label: "déployé",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const FeaturesSection = () => {
+  const { t } = useLanguage();
+  
+  const features = [
+    {
+      icon: Mic,
+      title: t("features.feature1.title"),
+      description: t("features.feature1.description"),
+      stat: t("features.feature1.stat"),
+      label: t("features.feature1.label"),
+    },
+    {
+      icon: MessageSquare,
+      title: t("features.feature2.title"),
+      description: t("features.feature2.description"),
+      stat: t("features.feature2.stat"),
+      label: t("features.feature2.label"),
+    },
+    {
+      icon: Network,
+      title: t("features.feature3.title"),
+      description: t("features.feature3.description"),
+      stat: t("features.feature3.stat"),
+      label: t("features.feature3.label"),
+    },
+    {
+      icon: BarChart3,
+      title: t("features.feature4.title"),
+      description: t("features.feature4.description"),
+      stat: t("features.feature4.stat"),
+      label: t("features.feature4.label"),
+    },
+    {
+      icon: Settings,
+      title: t("features.feature5.title"),
+      description: t("features.feature5.description"),
+      stat: t("features.feature5.stat"),
+      label: t("features.feature5.label"),
+    },
+  ];
   return (
     <section id="features" className="py-20 sm:py-32 relative overflow-hidden">
       {/* Complex background */}
@@ -49,10 +51,10 @@ const FeaturesSection = () => {
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-20 animate-fade-in">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
-            Fonctionnalités <span className="bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent neon-text">nouvelle génération</span>
+            {t("features.title")}
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Technologies d'IA conversationnelle qui transforment chaque interaction en opportunité
+            {t("features.subtitle")}
           </p>
         </div>
 
@@ -98,13 +100,13 @@ const FeaturesSection = () => {
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <span className="glass-card px-4 py-2 text-sm font-bold text-primary border border-primary/30 rounded-xl">
-                    Temps réel
+                    {t("features.badge1")}
                   </span>
                   <span className="glass-card px-4 py-2 text-sm font-bold text-accent border border-accent/30 rounded-xl">
-                    Personnalisable
+                    {t("features.badge2")}
                   </span>
                   <span className="glass-card px-4 py-2 text-sm font-bold text-primary-glow border border-primary/30 rounded-xl">
-                    Scalable
+                    {t("features.badge3")}
                   </span>
                 </div>
               </div>
