@@ -154,6 +154,11 @@ const translations: Record<Language, Record<string, string>> = {
     "test.success": "Success! You will receive a call in a few moments",
     "test.error": "An error occurred. Please try again.",
     "test.checkboxError": "Please accept all required conditions",
+    
+    // Not Found
+    "notfound.title": "404",
+    "notfound.message": "Oops! Page not found",
+    "notfound.home": "Return to Home",
   },
   fr: {
     // Header
@@ -298,6 +303,11 @@ const translations: Record<Language, Record<string, string>> = {
     "test.success": "Succès ! Vous allez recevoir un appel dans quelques instants",
     "test.error": "Une erreur est survenue. Veuillez réessayer.",
     "test.checkboxError": "Veuillez accepter toutes les conditions requises",
+    
+    // Not Found
+    "notfound.title": "404",
+    "notfound.message": "Oups ! Page introuvable",
+    "notfound.home": "Retour à l'accueil",
   },
 };
 
