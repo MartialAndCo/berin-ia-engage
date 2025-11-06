@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { Menu, X } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import flagFr from "@/assets/flag-fr.png";
+import flagUs from "@/assets/flag-us.png";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -49,16 +51,20 @@ const Header = () => {
           {/* Language Switch & CTA */}
           <div className="hidden md:flex items-center gap-4">
             <div className="flex items-center gap-2">
-              <span className={`text-xl transition-all ${language === "fr" ? "scale-110" : "opacity-50"}`}>
-                🇫🇷
-              </span>
+              <img 
+                src={flagFr} 
+                alt="Français" 
+                className={`w-6 h-6 rounded transition-all ${language === "fr" ? "scale-110" : "opacity-50"}`}
+              />
               <Switch
                 checked={language === "en"}
                 onCheckedChange={(checked) => setLanguage(checked ? "en" : "fr")}
               />
-              <span className={`text-xl transition-all ${language === "en" ? "scale-110" : "opacity-50"}`}>
-                🇬🇧
-              </span>
+              <img 
+                src={flagUs} 
+                alt="English" 
+                className={`w-6 h-6 rounded transition-all ${language === "en" ? "scale-110" : "opacity-50"}`}
+              />
             </div>
             <Button 
               variant="hero" 
@@ -96,16 +102,20 @@ const Header = () => {
               {t("header.contact")}
             </button>
             <div className="flex items-center justify-center gap-2 py-3">
-              <span className={`text-xl transition-all ${language === "fr" ? "scale-110" : "opacity-50"}`}>
-                🇫🇷
-              </span>
+              <img 
+                src={flagFr} 
+                alt="Français" 
+                className={`w-6 h-6 rounded transition-all ${language === "fr" ? "scale-110" : "opacity-50"}`}
+              />
               <Switch
                 checked={language === "en"}
                 onCheckedChange={(checked) => setLanguage(checked ? "en" : "fr")}
               />
-              <span className={`text-xl transition-all ${language === "en" ? "scale-110" : "opacity-50"}`}>
-                🇬🇧
-              </span>
+              <img 
+                src={flagUs} 
+                alt="English" 
+                className={`w-6 h-6 rounded transition-all ${language === "en" ? "scale-110" : "opacity-50"}`}
+              />
             </div>
             <Button 
               variant="hero" 
