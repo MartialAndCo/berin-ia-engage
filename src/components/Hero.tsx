@@ -55,19 +55,19 @@ const Hero = () => {
               <div className="glass-card px-5 py-3 rounded-xl border border-primary/30 hover:border-accent hover:shadow-glow-accent transition-all duration-300 group">
                 <div className="flex items-center gap-2">
                   <Zap className="w-5 h-5 text-accent group-hover:scale-110 transition-transform" />
-                  <span className="text-sm font-semibold text-foreground">Déploiement 48h</span>
+                  <span className="text-sm font-semibold text-foreground">{t("hero.badge1")}</span>
                 </div>
               </div>
               <div className="glass-card px-5 py-3 rounded-xl border border-primary/30 hover:border-accent hover:shadow-glow-accent transition-all duration-300 group">
                 <div className="flex items-center gap-2">
                   <Clock className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
-                  <span className="text-sm font-semibold text-foreground">Fiable 24/7</span>
+                  <span className="text-sm font-semibold text-foreground">{t("hero.badge2")}</span>
                 </div>
               </div>
               <div className="glass-card px-5 py-3 rounded-xl border border-primary/30 hover:border-accent hover:shadow-glow-accent transition-all duration-300 group">
                 <div className="flex items-center gap-2">
                   <Sparkles className="w-5 h-5 text-accent-glow group-hover:scale-110 transition-transform" />
-                  <span className="text-sm font-semibold text-foreground">100% Personnalisable</span>
+                  <span className="text-sm font-semibold text-foreground">{t("hero.badge3")}</span>
                 </div>
               </div>
             </div>
@@ -117,8 +117,8 @@ const Hero = () => {
                   <div className="w-7 h-7 rounded-full bg-accent animate-glow-pulse shadow-glow-accent" />
                 </div>
                 <div>
-                  <p className="text-base font-bold text-foreground">Appel IA actif</p>
-                  <p className="text-sm text-accent font-semibold">97% précision • Temps réel</p>
+                  <p className="text-base font-bold text-foreground">{t("hero.activeCall")}</p>
+                  <p className="text-sm text-accent font-semibold">{t("hero.accuracy")}</p>
                 </div>
               </div>
             </div>

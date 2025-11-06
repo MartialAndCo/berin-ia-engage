@@ -24,6 +24,11 @@ const translations: Record<Language, Record<string, string>> = {
     "hero.subtitle": "Automate your phone calls with an ultra-realistic AI that handles your customer requests 24/7",
     "hero.cta": "Try for Free",
     "hero.demo": "See Interactive Demo",
+    "hero.badge1": "48h Deployment",
+    "hero.badge2": "Reliable 24/7",
+    "hero.badge3": "100% Customizable",
+    "hero.activeCall": "Active AI Call",
+    "hero.accuracy": "97% accuracy • Real-time",
     
     // Product
     "product.title": "A Complete Solution for Your Customer Service",
@@ -390,6 +395,11 @@ const translations: Record<Language, Record<string, string>> = {
     "hero.subtitle": "Automatisez vos appels téléphoniques avec une IA ultra-réaliste qui gère vos demandes clients 24/7",
     "hero.cta": "Essayer Gratuitement",
     "hero.demo": "Voir la démo interactive",
+    "hero.badge1": "Déploiement 48h",
+    "hero.badge2": "Fiable 24/7",
+    "hero.badge3": "100% Personnalisable",
+    "hero.activeCall": "Appel IA actif",
+    "hero.accuracy": "97% précision • Temps réel",
     
     // Product
     "product.title": "Ce que fait BerinIA",
