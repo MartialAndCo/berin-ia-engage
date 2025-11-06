@@ -132,14 +132,14 @@ const ContactSection = () => {
           {/* Contact info */}
           <div className="space-y-8 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
             <div className="glass-card-strong p-10 rounded-3xl border-2 border-primary/20 space-y-8">
-              <h3 className="text-3xl font-extrabold mb-8">Nos coordonnées</h3>
+              <h3 className="text-3xl font-extrabold mb-8">{t("contact.ourDetails")}</h3>
 
               <div className="flex items-start gap-5">
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0 shadow-glow-primary">
                   <Mail className="w-7 h-7 text-background" />
                 </div>
                 <div>
-                  <div className="font-bold mb-1 text-lg">Email</div>
+                  <div className="font-bold mb-1 text-lg">{t("contact.emailLabel")}</div>
                   <a href="mailto:contact@berinia.com" className="text-muted-foreground hover:text-accent transition-colors font-semibold">
                     contact@berinia.com
                   </a>
@@ -151,7 +151,7 @@ const ContactSection = () => {
                   <Phone className="w-7 h-7 text-background" />
                 </div>
                 <div>
-                  <div className="font-bold mb-1 text-lg">Téléphone</div>
+                  <div className="font-bold mb-1 text-lg">{t("contact.phoneLabel")}</div>
                   <a href="tel:+33757594999" className="text-muted-foreground hover:text-primary transition-colors font-semibold">
                     +33 7 57 59 49 99
                   </a>
@@ -163,10 +163,9 @@ const ContactSection = () => {
                   <Clock className="w-7 h-7 text-background" />
                 </div>
                 <div>
-                  <div className="font-bold mb-1 text-lg">Horaires</div>
-                  <p className="text-muted-foreground font-semibold">
-                    Lun - Ven : 9h - 18h<br />
-                    Sam : 9h - 12h
+                  <div className="font-bold mb-1 text-lg">{t("contact.hoursLabel")}</div>
+                  <p className="text-muted-foreground font-semibold whitespace-pre-line">
+                    {t("contact.schedule")}
                   </p>
                 </div>
               </div>
@@ -176,10 +175,9 @@ const ContactSection = () => {
               <div className="flex items-start gap-4">
                 <div className="text-4xl">🔒</div>
                 <div>
-                  <h4 className="font-bold text-xl mb-3 text-accent">Vos données en sécurité</h4>
+                  <h4 className="font-bold text-xl mb-3 text-accent">{t("contact.dataSecurityTitle")}</h4>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Nous respectons votre vie privée. Aucune donnée n'est vendue à des tiers. 
-                    Conformité RGPD garantie, hébergement Europe, chiffrement de bout en bout.
+                    {t("contact.dataSecurityText")}
                   </p>
                 </div>
               </div>

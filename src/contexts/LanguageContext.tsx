@@ -119,6 +119,13 @@ const translations: Record<Language, Record<string, string>> = {
     "contact.send": "Send Request",
     "contact.success": "Message sent successfully!",
     "contact.error": "Error sending message",
+    "contact.ourDetails": "Our Contact Details",
+    "contact.emailLabel": "Email",
+    "contact.phoneLabel": "Phone",
+    "contact.hoursLabel": "Business Hours",
+    "contact.schedule": "Mon - Fri: 9am - 6pm\nSat: 9am - 12pm",
+    "contact.dataSecurityTitle": "Your Data is Secure",
+    "contact.dataSecurityText": "We respect your privacy. No data is sold to third parties. GDPR compliance guaranteed, European hosting, end-to-end encryption.",
     
     // Footer
     "footer.product": "Product",
@@ -478,6 +485,13 @@ const translations: Record<Language, Record<string, string>> = {
     "contact.send": "Envoyer la demande",
     "contact.success": "Message envoyé avec succès !",
     "contact.error": "Erreur lors de l'envoi",
+    "contact.ourDetails": "Nos coordonnées",
+    "contact.emailLabel": "Email",
+    "contact.phoneLabel": "Téléphone",
+    "contact.hoursLabel": "Horaires",
+    "contact.schedule": "Lun - Ven : 9h - 18h\nSam : 9h - 12h",
+    "contact.dataSecurityTitle": "Vos données en sécurité",
+    "contact.dataSecurityText": "Nous respectons votre vie privée. Aucune donnée n'est vendue à des tiers. Conformité RGPD garantie, hébergement Europe, chiffrement de bout en bout.",
     
     // Footer
     "footer.product": "Produit",
