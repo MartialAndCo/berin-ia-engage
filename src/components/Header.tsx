@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Switch } from "@/components/ui/switch";
 import { Menu, X } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -30,27 +33,39 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             <button onClick={() => scrollToSection("product")} className="text-sm font-semibold text-muted-foreground hover:text-accent transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-primary after:to-accent hover:after:w-full after:transition-all after:duration-300">
-              Produit
+              {t("header.product")}
             </button>
             <button onClick={() => scrollToSection("features")} className="text-sm font-semibold text-muted-foreground hover:text-accent transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-primary after:to-accent hover:after:w-full after:transition-all after:duration-300">
-              Fonctionnalités
+              {t("header.features")}
             </button>
             <button onClick={() => scrollToSection("social-proof")} className="text-sm font-semibold text-muted-foreground hover:text-accent transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-primary after:to-accent hover:after:w-full after:transition-all after:duration-300">
-              Cas clients
+              {t("header.cases")}
             </button>
             <button onClick={() => scrollToSection("contact")} className="text-sm font-semibold text-muted-foreground hover:text-accent transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-primary after:to-accent hover:after:w-full after:transition-all after:duration-300">
-              Contact
+              {t("header.contact")}
             </button>
           </nav>
 
-          {/* CTA */}
-          <div className="hidden md:block">
+          {/* Language Switch & CTA */}
+          <div className="hidden md:flex items-center gap-4">
+            <div className="flex items-center gap-2">
+              <span className={`text-sm font-medium transition-colors ${language === "fr" ? "text-accent" : "text-muted-foreground"}`}>
+                FR
+              </span>
+              <Switch
+                checked={language === "en"}
+                onCheckedChange={(checked) => setLanguage(checked ? "en" : "fr")}
+              />
+              <span className={`text-sm font-medium transition-colors ${language === "en" ? "text-accent" : "text-muted-foreground"}`}>
+                EN
+              </span>
+            </div>
             <Button 
               variant="hero" 
               size="sm"
               onClick={() => scrollToSection("contact")}
             >
-              Demander une démo
+              {t("header.cta")}
             </Button>
           </div>
 
@@ -69,23 +84,35 @@ const Header = () => {
         <div className="md:hidden border-t border-primary/20 glass-card-strong">
           <div className="container mx-auto px-4 py-4 space-y-4">
             <button onClick={() => scrollToSection("product")} className="block w-full text-left py-3 text-muted-foreground hover:text-accent font-semibold transition-colors">
-              Produit
+              {t("header.product")}
             </button>
             <button onClick={() => scrollToSection("features")} className="block w-full text-left py-3 text-muted-foreground hover:text-accent font-semibold transition-colors">
-              Fonctionnalités
+              {t("header.features")}
             </button>
             <button onClick={() => scrollToSection("social-proof")} className="block w-full text-left py-3 text-muted-foreground hover:text-accent font-semibold transition-colors">
-              Cas clients
+              {t("header.cases")}
             </button>
             <button onClick={() => scrollToSection("contact")} className="block w-full text-left py-3 text-muted-foreground hover:text-accent font-semibold transition-colors">
-              Contact
+              {t("header.contact")}
             </button>
+            <div className="flex items-center justify-center gap-2 py-3">
+              <span className={`text-sm font-medium transition-colors ${language === "fr" ? "text-accent" : "text-muted-foreground"}`}>
+                FR
+              </span>
+              <Switch
+                checked={language === "en"}
+                onCheckedChange={(checked) => setLanguage(checked ? "en" : "fr")}
+              />
+              <span className={`text-sm font-medium transition-colors ${language === "en" ? "text-accent" : "text-muted-foreground"}`}>
+                EN
+              </span>
+            </div>
             <Button 
               variant="hero" 
               className="w-full"
               onClick={() => scrollToSection("contact")}
             >
-              Demander une démo
+              {t("header.cta")}
             </Button>
           </div>
         </div>

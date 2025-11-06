@@ -1,7 +1,10 @@
 import { Linkedin, Twitter, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
+  const { t } = useLanguage();
+  
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -52,26 +55,26 @@ const Footer = () => {
 
           {/* Product */}
           <div>
-            <h4 className="font-bold text-lg mb-6 text-foreground">Produit</h4>
+            <h4 className="font-bold text-lg mb-6 text-foreground">{t("footer.product")}</h4>
             <ul className="space-y-3 text-sm">
               <li>
                 <button onClick={() => scrollToSection("features")} className="text-muted-foreground hover:text-accent transition-colors font-semibold">
-                  Fonctionnalités
+                  {t("footer.features")}
                 </button>
               </li>
               <li>
                 <button onClick={() => scrollToSection("social-proof")} className="text-muted-foreground hover:text-accent transition-colors font-semibold">
-                  Cas clients
+                  {t("header.cases")}
                 </button>
               </li>
               <li>
                 <button onClick={() => scrollToSection("demo")} className="text-muted-foreground hover:text-accent transition-colors font-semibold">
-                  Démo
+                  {t("hero.demo")}
                 </button>
               </li>
               <li>
                 <button className="text-muted-foreground hover:text-accent transition-colors font-semibold">
-                  Tarifs
+                  {t("footer.pricing")}
                 </button>
               </li>
             </ul>
@@ -79,26 +82,26 @@ const Footer = () => {
 
           {/* Company */}
           <div>
-            <h4 className="font-semibold mb-4">Entreprise</h4>
+            <h4 className="font-semibold mb-4">{t("footer.company")}</h4>
             <ul className="space-y-2 text-sm">
               <li>
                 <button className="text-muted-foreground hover:text-foreground transition-colors">
-                  À propos
+                  {t("footer.about")}
                 </button>
               </li>
               <li>
                 <button className="text-muted-foreground hover:text-foreground transition-colors">
-                  Blog
+                  {t("footer.blog")}
                 </button>
               </li>
               <li>
                 <button className="text-muted-foreground hover:text-foreground transition-colors">
-                  Carrières
+                  {t("footer.careers")}
                 </button>
               </li>
               <li>
                 <button onClick={() => scrollToSection("contact")} className="text-muted-foreground hover:text-foreground transition-colors">
-                  Contact
+                  {t("header.contact")}
                 </button>
               </li>
             </ul>
@@ -106,26 +109,26 @@ const Footer = () => {
 
           {/* Legal */}
           <div>
-            <h4 className="font-bold text-lg mb-6 text-foreground">Légal</h4>
+            <h4 className="font-bold text-lg mb-6 text-foreground">{t("footer.legal")}</h4>
             <ul className="space-y-3 text-sm">
               <li>
                 <Link to="/legal-notice" className="text-muted-foreground hover:text-accent transition-colors font-semibold">
-                  Mentions légales
+                  {t("footer.notice")}
                 </Link>
               </li>
               <li>
                 <Link to="/privacy-policy" className="text-muted-foreground hover:text-accent transition-colors font-semibold">
-                  Politique de confidentialité
+                  {t("footer.privacy")}
                 </Link>
               </li>
               <li>
                 <Link to="/terms-of-service" className="text-muted-foreground hover:text-accent transition-colors font-semibold">
-                  CGU
+                  {t("footer.terms")}
                 </Link>
               </li>
               <li>
                 <Link to="/cookie-policy" className="text-muted-foreground hover:text-accent transition-colors font-semibold">
-                  Cookies
+                  {t("footer.cookies")}
                 </Link>
               </li>
             </ul>
@@ -135,10 +138,7 @@ const Footer = () => {
         {/* Bottom bar */}
         <div className="pt-10 mt-10 border-t border-primary/20">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-            <p className="font-semibold">© {new Date().getFullYear()} BerinIA. Tous droits réservés.</p>
-            <p className="flex items-center gap-2">
-              Fait avec passion en France <span className="text-lg">🇫🇷</span>
-            </p>
+            <p className="font-semibold">© {new Date().getFullYear()} BerinIA. {t("footer.rights")}</p>
           </div>
         </div>
       </div>

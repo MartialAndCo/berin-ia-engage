@@ -6,12 +6,14 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { ArrowLeft, Phone, Briefcase, Check } from "lucide-react";
 import { toast } from "sonner";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const TestGratuit = () => {
   const [consent, setConsent] = useState(false);
   const [rgpd, setRgpd] = useState(false);
   const [cgu, setCgu] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { t } = useLanguage();
 
   // TODO: Remplacez cette URL par votre véritable webhook
   const WEBHOOK_URL = "https://your-webhook-url.com/trigger-demo-call";
@@ -20,7 +22,7 @@ const TestGratuit = () => {
     e.preventDefault();
     
     if (!consent || !rgpd || !cgu) {
-      toast.error("Veuillez accepter toutes les conditions pour continuer");
+      toast.error(t("test.checkboxError"));
       return;
     }
 
@@ -48,7 +50,7 @@ const TestGratuit = () => {
       });
 
       if (response.ok) {
-        toast.success("Appel de démonstration lancé ! Vous serez contacté dans quelques instants.");
+        toast.success(t("test.success"));
         // Reset form
         e.currentTarget.reset();
         setConsent(false);
@@ -59,7 +61,7 @@ const TestGratuit = () => {
       }
     } catch (error) {
       console.error('Erreur webhook:', error);
-      toast.error("Erreur lors du lancement de l'appel. Veuillez réessayer.");
+      toast.error(t("test.error"));
     } finally {
       setIsSubmitting(false);
     }
@@ -91,10 +93,10 @@ const TestGratuit = () => {
             </div>
             
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
-              Testez <span className="bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent neon-text">BerinIA</span> gratuitement
+              {t("test.title")} <span className="bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent neon-text">BerinIA</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-xl mx-auto leading-relaxed">
-              Remplissez ce formulaire et notre équipe vous recontactera pour configurer votre essai gratuit de 14 jours
+              {t("test.subtitle")}
             </p>
           </div>
 
@@ -109,33 +111,30 @@ const TestGratuit = () => {
               <div className="space-y-2">
                 <Label htmlFor="phone" className="text-base font-semibold flex items-center gap-2">
                   <Phone className="w-4 h-4 text-primary" />
-                  Numéro de téléphone *
+                  {t("test.phone")} *
                 </Label>
                 <Input
                   id="phone"
                   name="phone"
                   type="tel"
                   required
-                  placeholder="+33 6 12 34 56 78"
+                  placeholder={t("test.phonePlaceholder")}
                   className="bg-card/50 backdrop-blur-sm border-2 border-primary/20 focus:border-accent transition-all h-12 text-base"
                 />
-                <p className="text-sm text-muted-foreground">
-                  Nous vous appellerons pour configurer votre essai
-                </p>
               </div>
 
               {/* Business sector */}
               <div className="space-y-2">
                 <Label htmlFor="sector" className="text-base font-semibold flex items-center gap-2">
                   <Briefcase className="w-4 h-4 text-accent" />
-                  Votre secteur d'activité *
+                  {t("test.sector")} *
                 </Label>
                 <Input
                   id="sector"
                   name="sector"
                   type="text"
                   required
-                  placeholder="Ex: Immobilier, E-commerce, Service client..."
+                  placeholder={t("test.sectorPlaceholder")}
                   className="bg-card/50 backdrop-blur-sm border-2 border-primary/20 focus:border-accent transition-all h-12 text-base"
                 />
               </div>
@@ -143,14 +142,14 @@ const TestGratuit = () => {
               {/* Company name */}
               <div className="space-y-2">
                 <Label htmlFor="company" className="text-base font-semibold">
-                  Nom de votre entreprise *
+                  {t("test.company")} *
                 </Label>
                 <Input
                   id="company"
                   name="company"
                   type="text"
                   required
-                  placeholder="Votre entreprise"
+                  placeholder={t("test.companyPlaceholder")}
                   className="bg-card/50 backdrop-blur-sm border-2 border-primary/20 focus:border-accent transition-all h-12 text-base"
                 />
               </div>
@@ -158,14 +157,14 @@ const TestGratuit = () => {
               {/* Email */}
               <div className="space-y-2">
                 <Label htmlFor="email" className="text-base font-semibold">
-                  Email professionnel *
+                  {t("test.email")} *
                 </Label>
                 <Input
                   id="email"
                   name="email"
                   type="email"
                   required
-                  placeholder="contact@entreprise.com"
+                  placeholder={t("test.emailPlaceholder")}
                   className="bg-card/50 backdrop-blur-sm border-2 border-primary/20 focus:border-accent transition-all h-12 text-base"
                 />
               </div>
@@ -183,7 +182,7 @@ const TestGratuit = () => {
                     htmlFor="consent" 
                     className="text-sm leading-relaxed cursor-pointer flex-1"
                   >
-                    J'accepte d'être contacté par téléphone et email par l'équipe BerinIA pour configurer mon essai gratuit *
+                    {t("test.consent")} *
                   </Label>
                 </div>
 
@@ -198,7 +197,7 @@ const TestGratuit = () => {
                     htmlFor="rgpd" 
                     className="text-sm leading-relaxed cursor-pointer flex-1"
                   >
-                    J'accepte la <Link to="/privacy-policy" className="text-primary hover:text-accent underline">politique de confidentialité</Link> et le traitement de mes données conformément au RGPD *
+                    {t("test.gdpr")} *
                   </Label>
                 </div>
 
@@ -213,7 +212,7 @@ const TestGratuit = () => {
                     htmlFor="cgu" 
                     className="text-sm leading-relaxed cursor-pointer flex-1"
                   >
-                    J'accepte les <Link to="/terms-of-service" className="text-primary hover:text-accent underline">conditions générales d'utilisation</Link> de BerinIA *
+                    {t("test.terms")} *
                   </Label>
                 </div>
               </div>
@@ -226,11 +225,11 @@ const TestGratuit = () => {
                 className="w-full text-base h-14"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "Lancement de l'appel..." : "Lancer l'appel de démonstration"}
+                {isSubmitting ? t("test.submitting") : t("test.submit")}
               </Button>
 
               <p className="text-sm text-center text-muted-foreground">
-                Vous recevrez un appel <span className="font-semibold text-primary">dans quelques instants</span>
+                {t("test.success")}
               </p>
             </form>
           </div>

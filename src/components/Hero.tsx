@@ -2,10 +2,12 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Zap, Clock, Sparkles } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 import heroImage from "@/assets/hero-phone-ai.jpg";
 
 const Hero = () => {
   const navigate = useNavigate();
+  const { t } = useLanguage();
   
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -40,15 +42,12 @@ const Hero = () => {
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight">
               <span className="block text-foreground mb-2">BerinIA</span>
               <span className="block bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent neon-text">
-                L'IA qui convertit
-              </span>
-              <span className="block text-foreground/90 text-3xl sm:text-4xl lg:text-5xl mt-4 font-semibold">
-                chaque appel en client
+                {t("hero.title")}
               </span>
             </h1>
 
             <p className="text-xl sm:text-2xl text-muted-foreground leading-relaxed max-w-2xl">
-              Téléphonie intelligente propulsée par IA. <span className="text-accent font-semibold">Réponses instantanées</span>, disponibilité 24/7, <span className="text-primary font-semibold">+40% de conversions</span>.
+              {t("hero.subtitle")}
             </p>
 
             {/* Feature chips */}
@@ -81,7 +80,7 @@ const Hero = () => {
                 onClick={() => scrollToSection("contact")}
                 className="text-base"
               >
-                Demander une démo
+                {t("header.cta")}
               </Button>
               <Button 
                 variant="glass" 
@@ -89,7 +88,7 @@ const Hero = () => {
                 onClick={() => navigate("/essai-gratuit")}
                 className="text-base"
               >
-                Essayer gratuitement
+                {t("hero.cta")}
               </Button>
             </div>
           </div>

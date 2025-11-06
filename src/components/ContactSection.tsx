@@ -6,14 +6,16 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Mail, Phone, Clock } from "lucide-react";
 import { toast } from "sonner";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ContactSection = () => {
   const [consent, setConsent] = useState(false);
+  const { t } = useLanguage();
 
   const handleSubmit = (e: React.FormEvent) => {
     if (!consent) {
       e.preventDefault();
-      toast.error("Veuillez accepter la politique de confidentialité");
+      toast.error(t("contact.error"));
       return;
     }
   };
@@ -28,10 +30,10 @@ const ContactSection = () => {
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
-            Prêt à transformer <span className="bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent neon-text">vos appels</span> ?
+            {t("contact.title")}
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Demandez une démo personnalisée et découvrez comment BerinIA peut booster votre activité
+            {t("contact.subtitle")}
           </p>
         </div>
 
@@ -46,22 +48,22 @@ const ContactSection = () => {
             >
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="name">Nom complet *</Label>
+                  <Label htmlFor="name">{t("contact.name")} *</Label>
                   <Input
                     id="name"
                     name="name"
                     required
-                    placeholder="Jean Dupont"
+                    placeholder="John Doe"
                     className="bg-card/50 backdrop-blur-sm border-2 border-primary/20 focus:border-accent transition-all"
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="company">Société *</Label>
+                  <Label htmlFor="company">{t("contact.company")} *</Label>
                   <Input
                     id="company"
                     name="company"
                     required
-                    placeholder="Votre entreprise"
+                    placeholder={t("contact.company")}
                     className="bg-card/50 backdrop-blur-sm border-2 border-primary/20 focus:border-accent transition-all"
                   />
                 </div>
@@ -69,35 +71,35 @@ const ContactSection = () => {
 
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email professionnel *</Label>
+                  <Label htmlFor="email">{t("contact.email")} *</Label>
                   <Input
                     id="email"
                     name="email"
                     type="email"
                     required
-                    placeholder="contact@entreprise.com"
+                    placeholder="contact@company.com"
                     className="bg-card/50 backdrop-blur-sm border-2 border-primary/20 focus:border-accent transition-all"
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="phone">Téléphone *</Label>
+                  <Label htmlFor="phone">{t("contact.phone")} *</Label>
                   <Input
                     id="phone"
                     name="phone"
                     type="tel"
                     required
-                    placeholder="+33 6 12 34 56 78"
+                    placeholder="+1 234 567 8900"
                     className="bg-card/50 backdrop-blur-sm border-2 border-primary/20 focus:border-accent transition-all"
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="message">Parlez-nous de votre besoin</Label>
+                <Label htmlFor="message">{t("contact.message")}</Label>
                 <Textarea
                   id="message"
                   name="message"
-                  placeholder="Décrivez brièvement votre projet et vos attentes..."
+                  placeholder={t("contact.message")}
                   rows={5}
                   className="bg-card/50 backdrop-blur-sm resize-none border-2 border-primary/20 focus:border-accent transition-all"
                 />
@@ -113,17 +115,16 @@ const ContactSection = () => {
                   htmlFor="consent" 
                   className="text-sm text-muted-foreground leading-relaxed cursor-pointer"
                 >
-                  J'accepte que mes données soient utilisées pour me recontacter. 
-                  Vos données resteront privées — conforme RGPD.
+                  {t("test.consent")}
                 </Label>
               </div>
 
               <Button type="submit" variant="hero" size="lg" className="w-full text-base">
-                Demander une démo
+                {t("contact.send")}
               </Button>
 
               <p className="text-sm text-center text-muted-foreground">
-                Réponse garantie sous <span className="font-semibold text-primary">48 heures</span>
+                {t("contact.success")}
               </p>
             </form>
           </div>
