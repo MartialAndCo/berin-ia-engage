@@ -49,15 +49,15 @@ const Header = () => {
           {/* Language Switch & CTA */}
           <div className="hidden md:flex items-center gap-4">
             <div className="flex items-center gap-2">
-              <span className={`text-sm font-medium transition-colors ${language === "fr" ? "text-accent" : "text-muted-foreground"}`}>
-                FR
+              <span className={`text-xl transition-all ${language === "fr" ? "scale-110" : "opacity-50"}`}>
+                🇫🇷
               </span>
               <Switch
                 checked={language === "en"}
                 onCheckedChange={(checked) => setLanguage(checked ? "en" : "fr")}
               />
-              <span className={`text-sm font-medium transition-colors ${language === "en" ? "text-accent" : "text-muted-foreground"}`}>
-                EN
+              <span className={`text-xl transition-all ${language === "en" ? "scale-110" : "opacity-50"}`}>
+                🇬🇧
               </span>
             </div>
             <Button 
@@ -96,15 +96,15 @@ const Header = () => {
               {t("header.contact")}
             </button>
             <div className="flex items-center justify-center gap-2 py-3">
-              <span className={`text-sm font-medium transition-colors ${language === "fr" ? "text-accent" : "text-muted-foreground"}`}>
-                FR
+              <span className={`text-xl transition-all ${language === "fr" ? "scale-110" : "opacity-50"}`}>
+                🇫🇷
               </span>
               <Switch
                 checked={language === "en"}
                 onCheckedChange={(checked) => setLanguage(checked ? "en" : "fr")}
               />
-              <span className={`text-sm font-medium transition-colors ${language === "en" ? "text-accent" : "text-muted-foreground"}`}>
-                EN
+              <span className={`text-xl transition-all ${language === "en" ? "scale-110" : "opacity-50"}`}>
+                🇬🇧
               </span>
             </div>
             <Button 
