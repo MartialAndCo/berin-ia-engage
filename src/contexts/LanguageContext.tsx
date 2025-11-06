@@ -90,6 +90,24 @@ const translations: Record<Language, Record<string, string>> = {
     "social.trust3.label": "24/7 Support",
     "social.trust4.label": "ISO Security",
     
+    // FAQ
+    "faq.title": "Frequently Asked Questions",
+    "faq.subtitle": "Everything you need to know about BerinIA",
+    "faq.q1": "How long does it take to deploy BerinIA?",
+    "faq.a1": "Initial deployment takes between 48 hours and 5 days depending on the complexity of your scenarios. We handle the technical integration and AI customization for your sector.",
+    "faq.q2": "Can AI really replace a human?",
+    "faq.a2": "BerinIA efficiently handles common and repetitive requests (80% of calls). For complex cases, the call is intelligently transferred to a human agent with all the context.",
+    "faq.q3": "How does integration with our CRM work?",
+    "faq.a3": "We offer native connectors for Salesforce, HubSpot, Pipedrive and other tools. Open APIs also allow quick custom integrations.",
+    "faq.q4": "What are the pricing options?",
+    "faq.a4": "We offer a pay-per-use model (cost per call) or monthly plan based on your volume. Contact us for a personalized quote tailored to your specific needs.",
+    "faq.q5": "Is data secure and GDPR compliant?",
+    "faq.a5": "Absolutely. BerinIA is hosted in Europe, GDPR compliant, and ISO 27001 certified. Your customer data remains private, encrypted and is never shared.",
+    "faq.q6": "Can we customize the AI's voice and tone?",
+    "faq.a6": "Yes, completely. You choose the voice, vocabulary, level of formality and scripts according to your brand image and sector of activity. Demos available.",
+    "faq.noAnswer": "Can't find the answer to your question?",
+    "faq.contact": "Contact our team",
+    
     // Contact
     "contact.title": "Ready to Transform Your Customer Service?",
     "contact.subtitle": "Contact us for a personalized demo",
@@ -215,6 +233,24 @@ const translations: Record<Language, Record<string, string>> = {
     "social.trust2.label": "Conformité RGPD",
     "social.trust3.label": "Support 24/7",
     "social.trust4.label": "Sécurité ISO",
+    
+    // FAQ
+    "faq.title": "Questions fréquentes",
+    "faq.subtitle": "Tout ce que vous devez savoir sur BerinIA",
+    "faq.q1": "Combien de temps faut-il pour déployer BerinIA ?",
+    "faq.a1": "Le déploiement initial prend entre 48h et 5 jours selon la complexité de vos scénarios. Nous gérons l'intégration technique et la personnalisation de l'IA pour votre secteur.",
+    "faq.q2": "L'IA peut-elle vraiment remplacer un humain ?",
+    "faq.a2": "BerinIA gère efficacement les demandes courantes et répétitives (80% des appels). Pour les cas complexes, l'appel est transféré intelligemment à un agent humain avec tout le contexte.",
+    "faq.q3": "Comment se passe l'intégration avec notre CRM ?",
+    "faq.a3": "Nous proposons des connecteurs natifs pour Salesforce, HubSpot, Pipedrive et d'autres outils. Les API ouvertes permettent aussi des intégrations sur mesure rapides.",
+    "faq.q4": "Quelles sont les options de tarification ?",
+    "faq.a4": "Nous proposons un modèle par usage (coût par appel) ou forfait mensuel selon votre volume. Contactez-nous pour un devis personnalisé adapté à vos besoins spécifiques.",
+    "faq.q5": "Les données sont-elles sécurisées et conformes RGPD ?",
+    "faq.a5": "Absolument. BerinIA est hébergé en Europe, conforme RGPD, et certifié ISO 27001. Vos données client restent privées, chiffrées et ne sont jamais partagées.",
+    "faq.q6": "Peut-on personnaliser la voix et le ton de l'IA ?",
+    "faq.a6": "Oui, entièrement. Vous choisissez la voix, le vocabulaire, le niveau de formalité et les scripts selon votre image de marque et secteur d'activité. Démos disponibles.",
+    "faq.noAnswer": "Vous ne trouvez pas la réponse à votre question ?",
+    "faq.contact": "Contactez notre équipe",
     
     // Contact
     "contact.title": "Prêt à Transformer Votre Service Client ?",
