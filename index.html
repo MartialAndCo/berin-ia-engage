@@ -29,5 +29,29 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <vapi-widget
+      public-key="ab1216dc-0cfe-4d37-95f8-99cbcd929109"
+      assistant-id="8ee53f14-dfdb-4c23-97e9-6e0c62561352"
+      mode="voice"
+      theme="dark"
+      base-bg-color="#09101a"
+      accent-color="#00d4ff"
+      cta-button-color="#0080ff"
+      cta-button-text-color="#ffffff"
+      border-radius="medium"
+      size="compact"
+      position="bottom-right"
+      title="TALK WITH OUR AI AGENT"
+      start-button-text="Start"
+      end-button-text="End Call"
+      chat-first-message="Hey, How can I help you today?"
+      chat-placeholder="Type your message..."
+      voice-show-transcript="true"
+      consent-required="true"
+      consent-title="Terms and conditions"
+      consent-content="By clicking "Agree," and each time I interact with this AI agent, I consent to the recording, storage, and sharing of my communications with third-party service providers, and as otherwise described in our Terms of Service."
+      consent-storage-key="vapi_widget_consent"
+    ></vapi-widget>
+    <script src="https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js" async type="text/javascript"></script>
   </body>
 </html>
