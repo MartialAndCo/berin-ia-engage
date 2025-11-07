@@ -24,9 +24,9 @@ const Hero = () => {
       
       {/* Enhanced floating particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary rounded-full blur-[120px] opacity-30 animate-float" />
-        <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] bg-accent rounded-full blur-[140px] opacity-25 animate-float" style={{ animationDelay: "2s" }} />
-        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-primary-glow rounded-full blur-[100px] opacity-20 animate-float" style={{ animationDelay: "4s" }} />
+        <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-primary rounded-full blur-[120px] opacity-30 animate-float" />
+        <div className="absolute bottom-1/3 right-1/4 w-64 h-64 sm:w-96 sm:h-96 lg:w-[500px] lg:h-[500px] bg-accent rounded-full blur-[140px] opacity-25 animate-float" style={{ animationDelay: "2s" }} />
+        <div className="absolute top-1/2 left-1/2 w-40 h-40 sm:w-56 sm:h-56 lg:w-64 lg:h-64 bg-primary-glow rounded-full blur-[100px] opacity-20 animate-float" style={{ animationDelay: "4s" }} />
       </div>
       
       {/* Grid pattern overlay */}
@@ -35,18 +35,18 @@ const Hero = () => {
         backgroundSize: '50px 50px'
       }} />
 
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left content */}
-          <div className="space-y-8 animate-fade-in-up">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight">
+          <div className="space-y-6 sm:space-y-8 animate-fade-in-up">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight tracking-tight">
               <span className="block text-foreground mb-2">BerinIA</span>
               <span className="block bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent neon-text">
                 {t("hero.title")}
               </span>
             </h1>
 
-            <p className="text-xl sm:text-2xl text-muted-foreground leading-relaxed max-w-2xl">
+            <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground leading-relaxed max-w-2xl">
               {t("hero.subtitle")}
             </p>
 
@@ -94,11 +94,11 @@ const Hero = () => {
           </div>
 
           {/* Right visual */}
-          <div className="relative animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+          <div className="relative animate-fade-in-up mt-8 lg:mt-0" style={{ animationDelay: "0.2s" }}>
             {/* Glow effects behind image */}
             <div className="absolute -inset-4 bg-gradient-to-r from-primary/30 via-accent/30 to-primary-glow/30 blur-3xl opacity-60 animate-glow-pulse" />
             
-            <div className="relative rounded-3xl overflow-hidden border-2 border-primary/30 shadow-glow-primary hover:shadow-neon hover:border-accent/50 transition-all duration-500 hover:scale-[1.02] group">
+            <div className="relative rounded-2xl lg:rounded-3xl overflow-hidden border-2 border-primary/30 shadow-glow-primary hover:shadow-neon hover:border-accent/50 transition-all duration-500 hover:scale-[1.02] group">
               <img 
                 src={heroImage} 
                 alt="Interface IA téléphonie BerinIA avec visualisation des appels intelligents"
@@ -110,15 +110,15 @@ const Hero = () => {
             </div>
             
             {/* Enhanced floating card */}
-            <div className="absolute -bottom-8 -left-8 z-20 glass-card-strong border-2 border-accent/30 rounded-2xl p-5 shadow-glow-accent animate-float neon-border">
-              <div className="flex items-center gap-4">
-                <div className="relative w-14 h-14 rounded-full bg-gradient-to-br from-accent/30 to-primary/30 flex items-center justify-center">
+            <div className="absolute bottom-4 left-4 sm:-bottom-6 sm:-left-6 lg:-bottom-8 lg:-left-8 z-20 glass-card-strong border-2 border-accent/30 rounded-xl lg:rounded-2xl p-3 sm:p-4 lg:p-5 shadow-glow-accent animate-float neon-border max-w-[calc(100%-2rem)]">
+              <div className="flex items-center gap-2 sm:gap-3 lg:gap-4">
+                <div className="relative w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-full bg-gradient-to-br from-accent/30 to-primary/30 flex items-center justify-center flex-shrink-0">
                   <div className="absolute inset-0 bg-accent/20 rounded-full animate-ping" />
-                  <div className="w-7 h-7 rounded-full bg-accent animate-glow-pulse shadow-glow-accent" />
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 rounded-full bg-accent animate-glow-pulse shadow-glow-accent" />
                 </div>
-                <div>
-                  <p className="text-base font-bold text-foreground">{t("hero.activeCall")}</p>
-                  <p className="text-sm text-accent font-semibold">{t("hero.accuracy")}</p>
+                <div className="min-w-0">
+                  <p className="text-sm sm:text-base font-bold text-foreground truncate">{t("hero.activeCall")}</p>
+                  <p className="text-xs sm:text-sm text-accent font-semibold truncate">{t("hero.accuracy")}</p>
                 </div>
               </div>
             </div>
