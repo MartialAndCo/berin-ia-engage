@@ -152,8 +152,8 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <div className="font-bold mb-1 text-lg">{t("contact.phoneLabel")}</div>
-                  <a href="tel:+33757594999" className="text-muted-foreground hover:text-primary transition-colors font-semibold">
-                    +33 7 57 59 49 99
+                  <a href="tel:+14588991738" className="text-muted-foreground hover:text-primary transition-colors font-semibold">
+                    +1 (458) 899 1738
                   </a>
                 </div>
               </div>
